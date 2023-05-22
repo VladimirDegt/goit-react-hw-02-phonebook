@@ -41,6 +41,7 @@
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "nanoid": "^4.0.2",
-    "notiflix": "^3.2.6"
+    "notiflix": "^3.2.6",
+    "prop-types": "^15.8.1"
   }
 }

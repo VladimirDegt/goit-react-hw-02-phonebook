@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid'
 import { Component } from "react";
+import PropTypes, { func, object } from 'prop-types';
 import { Section, ContactsList, ItemList } from './Contacts.styled';
 
 const inputFindId = nanoid();
@@ -51,5 +52,15 @@ class Contacts extends Component {
             </Section>
   }  
 };
+
+Contacts.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })).isRequired,
+  onDeleteContact: func.isRequired,
+}
 
 export default Contacts;

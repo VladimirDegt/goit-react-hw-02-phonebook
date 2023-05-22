@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid'
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Section, Form, Button } from './AddContactsForm.styled';
 
 const inputNameId = nanoid();
@@ -60,6 +61,10 @@ class AddContactsForm extends Component{
           </Form> 
         </Section>
   }
+};
+
+AddContactsForm.propTypes = {
+  createContact: PropTypes.func.isRequired,
 };
 
 export default AddContactsForm;

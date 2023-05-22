@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { nanoid } from 'nanoid';
-import Notiflix, { Notify } from 'notiflix';
+import { Notify } from 'notiflix';
 import AddContactsForm from "./AddContactsForm";
 import Contacts from "./Contacts";
 import { Container } from './App.styled';
