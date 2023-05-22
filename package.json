@@ -38,6 +38,9 @@
     ]
   },
   "devDependencies": {
-    "nanoid": "^4.0.2"
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "nanoid": "^4.0.2",
+    "notiflix": "^3.2.6"
   }
 }

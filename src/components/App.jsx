@@ -1,7 +1,9 @@
-import { Component } from "react"
-import { nanoid } from 'nanoid'
+import { Component } from "react";
+import { nanoid } from 'nanoid';
+import Notiflix, { Notify } from 'notiflix';
 import AddContactsForm from "./AddContactsForm";
 import Contacts from "./Contacts";
+import { Container } from './App.styled';
 
 export class App extends Component {
   state = {
@@ -16,24 +18,35 @@ export class App extends Component {
     this.addContact(newContact)
   };
 
-  addContact(newContact){
+  addContact = (newContact) => {
     if(this.state.contacts.some((item)=>{
       return item.name.toLowerCase() === newContact.name.toLowerCase()
     })) {
-      alert('такой пользователь уже есть')
+      Notify.failure('Такий контакт вже записано!')
       return
     }
+    Notify.success('Контакт записано!')
     this.setState((prevState)=>{
       return {
         contacts: [...prevState.contacts, newContact]
       }
     })
-  }
+  };
+
+  deleteContact = (contactId) => {
+    this.setState((prevState)=>({
+      contacts: prevState.contacts.filter( (item) => item.id !== contactId),
+    }))
+    Notify.info('Контакт видалено!')
+  };
 
   render() {
-    return <>
+    return <Container>
     <AddContactsForm createContact={(data)=>this.createContact(data)}/>
-    <Contacts contacts={this.state.contacts}/>
-    </>;
+    <Contacts 
+      contacts={this.state.contacts}
+      onDeleteContact = {this.deleteContact}
+      />
+    </Container>;
   };
 };

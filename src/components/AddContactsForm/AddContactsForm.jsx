@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid'
 import { Component } from 'react';
+import { Section, Form, Button } from './AddContactsForm.styled';
 
 const inputNameId = nanoid();
 const inputNumberId = nanoid();
@@ -30,9 +31,9 @@ class AddContactsForm extends Component{
   }
 
   render() {
-  return <section>
+  return <Section>
           <h1>Phonebook</h1>
-          <form onSubmit={this.handleFormSubmit}>
+          <Form onSubmit={this.handleFormSubmit}>
             <label htmlFor={inputNameId}>Name</label> 
             <input
               id={inputNameId}
@@ -55,9 +56,9 @@ class AddContactsForm extends Component{
               onChange={this.handleInputChange}
               value={this.state.number}
             />
-            <button type="submit">Add contacts</button>
-          </form> 
-        </section>
+            <Button type="submit">Add contacts</Button>
+          </Form> 
+        </Section>
   }
 };
 
